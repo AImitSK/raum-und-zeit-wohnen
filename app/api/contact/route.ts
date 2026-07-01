@@ -11,7 +11,13 @@ type ContactPayload = {
   abreise?: string;
   nachricht?: string;
   consent?: boolean;
+  // Spam-Schutz
+  website?: string; // Honeypot
+  elapsedMs?: number | null; // Zeit zwischen Aufbau und Absenden
 };
+
+// Mindestzeit (ms) zwischen Formular-Aufbau und Absenden – schneller = Bot
+const MIN_ELAPSED_MS = 2500;
 
 const TO_EMAIL =
   process.env.SENDGRID_FORM_TO_EMAIL ||
@@ -87,6 +93,15 @@ export async function POST(request: Request) {
     data = (await request.json()) as ContactPayload;
   } catch {
     return NextResponse.json({ error: "Ungültige Anfrage." }, { status: 400 });
+  }
+
+  // Spam-Schutz: Honeypot ausgefüllt oder zu schnell abgeschickt -> still verwerfen.
+  // Wir antworten bewusst mit success, damit Bots keinen Fehler als Signal bekommen.
+  const tooFast =
+    typeof data.elapsedMs === "number" && data.elapsedMs < MIN_ELAPSED_MS;
+  if ((data.website && data.website.trim() !== "") || tooFast) {
+    console.warn("Kontaktanfrage als Spam verworfen (Honeypot/Timing).");
+    return NextResponse.json({ success: true });
   }
 
   // Serverseitige Validierung der Pflichtfelder

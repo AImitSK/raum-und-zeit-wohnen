@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Reveal from "./Reveal";
 
 type FormState = {
@@ -32,6 +32,13 @@ export default function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
   const [message, setMessage] = useState<string>("");
 
+  // Spam-Schutz: Honeypot-Feld + Zeitpunkt des Formular-Aufbaus
+  const [honeypot, setHoneypot] = useState("");
+  const loadedAt = useRef<number>(0);
+  useEffect(() => {
+    loadedAt.current = Date.now();
+  }, []);
+
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
     setForm((prev) => ({ ...prev, [key]: value }));
   }
@@ -55,7 +62,11 @@ export default function ContactForm() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          website: honeypot, // Honeypot – bleibt bei echten Nutzern leer
+          elapsedMs: loadedAt.current ? Date.now() - loadedAt.current : null,
+        }),
       });
 
       const data = await res.json().catch(() => ({}));
@@ -100,6 +111,19 @@ export default function ContactForm() {
         </p>
 
         <form id="anfrageForm" noValidate onSubmit={handleSubmit}>
+          {/* Honeypot – für Menschen unsichtbar, nur Bots füllen es aus */}
+          <div className="hp-field" aria-hidden="true">
+            <label htmlFor="website">Website (bitte leer lassen)</label>
+            <input
+              type="text"
+              id="website"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              value={honeypot}
+              onChange={(e) => setHoneypot(e.target.value)}
+            />
+          </div>
           <div className="row">
             <div className="field">
               <label htmlFor="name">Name</label>
