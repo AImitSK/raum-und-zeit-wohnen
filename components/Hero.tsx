@@ -36,8 +36,8 @@ export default function Hero() {
               className="hero__logo"
               src="/bilder/logo.png"
               alt="RAUM & ZEIT – Südbahnhof"
-              width={620}
-              height={413}
+              width={1195}
+              height={291}
               priority
             />
           </div>

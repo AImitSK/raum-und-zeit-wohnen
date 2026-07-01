@@ -16,7 +16,7 @@ type ContactPayload = {
 const TO_EMAIL =
   process.env.SENDGRID_FORM_TO_EMAIL ||
   process.env.CONTACT_EMAIL ||
-  "kontakt@raumundzeit-bo.de";
+  "f.viseneber@brand-partner.de";
 const FROM_EMAIL = process.env.SENDGRID_FROM_EMAIL || "";
 const FROM_NAME = process.env.SENDGRID_FROM_NAME || "RAUM & ZEIT";
 

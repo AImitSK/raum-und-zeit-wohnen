@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer>
@@ -8,16 +10,16 @@ export default function Footer() {
         <div className="fmeta">
           Weserstraße · 32545 Bad Oeynhausen
           <br />
-          kontakt@raumundzeit-bo.de
+          f.viseneber@brand-partner.de
         </div>
         <div className="fdiv"></div>
         <nav className="fnav">
-          <a href="#apartment">Apartment</a>
-          <a href="#ausstattung">Ausstattung</a>
-          <a href="#lage">Lage</a>
-          <a href="#anfragen">Anfragen</a>
-          <a href="#impressum">Impressum</a>
-          <a href="#datenschutz">Datenschutz</a>
+          <Link href="/#apartment">Apartment</Link>
+          <Link href="/#ausstattung">Ausstattung</Link>
+          <Link href="/#lage">Lage</Link>
+          <Link href="/#anfragen">Anfragen</Link>
+          <Link href="/impressum">Impressum</Link>
+          <Link href="/datenschutz">Datenschutz</Link>
         </nav>
         <p className="fnote">
           © 2026 RAUM &amp; ZEIT · Möbliertes Apartment auf Zeit in Bad

@@ -52,12 +52,7 @@ export default function Home() {
         image="/bilder/bad.jpg"
         alt="Modernes Badezimmer mit großzügiger Dusche"
         eyebrow="Badezimmer"
-        title={
-          <>
-            Modern, hell,<br />
-            großzügig
-          </>
-        }
+        title="Modern, hell, großzügig"
         text="Das moderne Badezimmer verfügt über eine großzügige Dusche und fügt sich mit seiner klaren, stilvollen Gestaltung harmonisch in das Gesamtkonzept ein. Alles ist da, damit der Tag entspannt beginnen und ausklingen kann."
         bullets={[
           "Großzügige, ebenerdige Dusche",

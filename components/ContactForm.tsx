@@ -219,10 +219,10 @@ export default function ContactForm() {
             <span style={{ fontSize: 13, color: "rgba(237,230,218,.6)" }}>
               oder per E-Mail:{" "}
               <a
-                href="mailto:kontakt@raumundzeit-bo.de"
+                href="mailto:f.viseneber@brand-partner.de"
                 style={{ borderBottom: "1px solid var(--brass)" }}
               >
-                kontakt@raumundzeit-bo.de
+                f.viseneber@brand-partner.de
               </a>
             </span>
           </div>

@@ -120,6 +120,7 @@ section { padding: 120px 0; }
 .hero__amp { font-style: italic; font-weight: 400; color: #E9D9BD; padding: 0 .12em; }
 .hero__sub {
   margin: 26px auto 0; max-width: 560px;
+  color: var(--paper);
   font-size: 1.12rem; line-height: 1.6; font-weight: 300; opacity: .94;
 }
 
@@ -155,8 +156,8 @@ section { padding: 120px 0; }
 .rule { width: 1px; height: 64px; background: var(--line); margin: 0 auto 8px; }
 
 /* ---------- split rows ---------- */
-.split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; }
-.split__media { position: relative; min-height: 520px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; min-height: 640px; }
+.split__media { position: relative; min-height: 640px; }
 .split__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .split__body { padding: 96px 8vw; display: flex; flex-direction: column; justify-content: center; }
 .split--reverse .split__media { order: 2; }
@@ -184,8 +185,14 @@ section { padding: 120px 0; }
   grid-auto-rows: 240px;
 }
 .gallery__grid figure { overflow: hidden; position: relative; }
+.gallery__grid figure button {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  padding: 0; margin: 0; border: 0; background: none; cursor: pointer;
+  display: block;
+}
 .gallery__grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
 .gallery__grid figure:hover img { transform: scale(1.05); }
+.gallery__grid figure button:focus-visible { outline: 2px solid var(--brass); outline-offset: -2px; }
 .g-tall { grid-row: span 2; }
 .g-wide { grid-column: span 2; }
 
@@ -276,6 +283,34 @@ footer .fdiv { width: 40px; height: 1px; background: var(--brass); margin: 28px 
 footer .fnav { display: flex; gap: 26px; justify-content: center; font-size: 11px; letter-spacing: .2em; text-transform: uppercase; margin-top: 10px; flex-wrap: wrap; }
 footer .fnote { margin-top: 30px; font-size: 11.5px; opacity: .5; }
 
+/* ---------- legal pages (Impressum / Datenschutz) ---------- */
+.legal { background: var(--paper); padding: 0 0 100px; }
+.legal__top {
+  background: var(--forest); color: var(--paper);
+  padding: 30px 0; margin-bottom: 70px;
+}
+.legal__top .wrap { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+.legal__brand { font-family: var(--display); font-size: 1.35rem; letter-spacing: .14em; font-weight: 500; }
+.legal__brand small { display: block; font-family: var(--sans); font-weight: 400; font-size: .6rem; letter-spacing: .4em; opacity: .85; margin-top: 2px; }
+.legal__back { font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--paper); opacity: .85; transition: opacity .3s; }
+.legal__back:hover { opacity: 1; }
+.legal h1 {
+  font-family: var(--display); font-weight: 500;
+  font-size: clamp(2rem, 4.4vw, 3rem); line-height: 1.1; letter-spacing: .01em;
+  margin-bottom: .5em;
+}
+.legal h2 {
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem); margin: 1.6em 0 .5em;
+}
+.legal h3 { font-size: 1.25rem; margin: 1.2em 0 .3em; }
+.legal p, .legal li { color: var(--ink-soft); }
+.legal p { margin-bottom: 1em; }
+.legal ul { margin: 0 0 1em 1.2em; }
+.legal li { margin-bottom: .4em; }
+.legal a { color: var(--brass); border-bottom: 1px solid var(--brass); }
+.legal address { font-style: normal; color: var(--ink); margin-bottom: 1em; line-height: 1.9; }
+.legal .muted { font-size: 13.5px; color: var(--ink-soft); font-style: italic; }
+
 /* ---------- reveal animation ---------- */
 .reveal { opacity: 0; transform: translateY(26px); transition: opacity 1s ease, transform 1s ease; }
 .reveal.in { opacity: 1; transform: none; }
@@ -286,7 +321,7 @@ footer .fnote { margin-top: 30px; font-size: 11.5px; opacity: .5; }
   .wrap { padding: 0 26px; }
   .hero__nav { display: none; }
   .hero__facts { gap: 26px; }
-  .split { grid-template-columns: 1fr; }
+  .split { grid-template-columns: 1fr; min-height: 0; }
   .split__media { min-height: 340px; order: -1 !important; }
   .split--reverse .split__media { order: -1; }
   .split__body { padding: 60px 30px; }
