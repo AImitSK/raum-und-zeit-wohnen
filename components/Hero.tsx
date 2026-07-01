@@ -32,14 +32,12 @@ export default function Hero() {
             Möbliertes Apartment · Bad Oeynhausen
           </div>
           <div className="hero__logo-wrap">
-            <Image
-              className="hero__logo"
-              src="/bilder/logo.png"
-              alt="RAUM & ZEIT – Südbahnhof"
-              width={1195}
-              height={291}
-              priority
-            />
+            <h1 className="hero__logo-text">
+              <span className="hero__logo-main">
+                RAUM <span className="hero__amp">&amp;</span> ZEIT
+              </span>
+              <span className="hero__logo-sub">Südbahnhof</span>
+            </h1>
           </div>
           <p className="hero__sub">
             Ein stilvoll möbliertes Apartment im historischen Südbahnhof –
