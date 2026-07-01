@@ -16,7 +16,7 @@ import Reveal from "./Reveal";
 
 // Erstes Bild = großes Feature-Bild (mit Bildunterschrift).
 const IMAGES = [
-  { src: "/bilder/schlafen.jpg", alt: "Wohn- und Schlafbereich mit Boxspringbett", caption: "Wohnen & Schlafen", w: 2048, h: 1536 },
+  { src: "/bilder/schlafen.jpg", alt: "Wohn- und Schlafbereich mit Boxspringbett", caption: "Wohnen & Schlafen", w: 2390, h: 1792 },
   { src: "/bilder/esstisch.jpg", alt: "Essbereich mit ausziehbarem Tisch", w: 2048, h: 1536 },
   { src: "/bilder/kaffee.jpg", alt: "Gedeckter Frühstückstisch mit Kaffee", w: 2048, h: 1536 },
   { src: "/bilder/kueche.jpg", alt: "Voll ausgestattete Küche", w: 2048, h: 1536 },
