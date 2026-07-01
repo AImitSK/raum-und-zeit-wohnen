@@ -86,6 +86,19 @@ export default function ImpressumPage() {
             jeweiligen Autors bzw. Erstellers.
           </p>
 
+          <h2>Konzeption &amp; Umsetzung</h2>
+          <p>
+            Gestaltung und technische Realisierung dieser Website:
+            <br />
+            <a
+              href="https://www.sk-online-marketing.de/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              SK Online Marketing
+            </a>
+          </p>
+
           <p className="muted">
             Hinweis: Die mit „Mustertext" gekennzeichneten Angaben sind
             Platzhalter und vor Veröffentlichung durch die tatsächlichen Daten zu
