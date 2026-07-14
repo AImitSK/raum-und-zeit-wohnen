@@ -5,6 +5,7 @@ import Gallery from "@/components/Gallery";
 import Amenities from "@/components/Amenities";
 import Location from "@/components/Location";
 import DirectBooking from "@/components/DirectBooking";
+import Availability from "@/components/Availability";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
@@ -64,6 +65,7 @@ export default function Home() {
       <Amenities />
       <Location />
       <DirectBooking />
+      <Availability />
       <ContactForm />
       <Footer />
     </>

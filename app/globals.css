@@ -277,6 +277,21 @@ section { padding: 120px 0; }
 .perks .p small { font-size: 14px; color: var(--ink-soft); line-height: 1.6; }
 .note { margin-top: 52px; font-size: 13.5px; color: var(--ink-soft); font-style: italic; max-width: 640px; margin-left: auto; margin-right: auto; }
 
+/* ---------- availability / calendar ---------- */
+.availability { background: var(--paper); text-align: center; }
+.availability .narrow { max-width: 900px; }
+.cal-frame {
+  margin-top: 48px;
+  padding: 22px;
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+}
+.cal-frame .calendarWidget { max-width: 100%; }
+.cal-frame table { margin-left: auto; margin-right: auto; }
+@media (max-width: 640px) {
+  .cal-frame { padding: 12px; overflow-x: auto; }
+}
+
 /* ---------- form ---------- */
 .contact { background: var(--forest); color: var(--paper); }
 .contact .eyebrow { color: #D9C39A; }
