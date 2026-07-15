@@ -6,9 +6,6 @@ type ContactPayload = {
   name?: string;
   email?: string;
   telefon?: string;
-  gaeste?: string;
-  anreise?: string;
-  abreise?: string;
   nachricht?: string;
   consent?: boolean;
   // Spam-Schutz
@@ -44,16 +41,13 @@ function buildContent(data: ContactPayload) {
     ["Name", data.name || "-"],
     ["E-Mail", data.email || "-"],
     ["Telefon", data.telefon || "-"],
-    ["Gäste", data.gaeste || "-"],
-    ["Anreise", data.anreise || "-"],
-    ["Abreise", data.abreise || "-"],
     ["Nachricht", data.nachricht || "-"],
   ];
 
   const text = rows.map(([k, v]) => `${k}: ${v}`).join("\n");
   const html = `
     <div style="font-family:Arial,sans-serif;font-size:15px;color:#221E19">
-      <h2 style="color:#2C3B30">Neue Anfrage – RAUM &amp; ZEIT</h2>
+      <h2 style="color:#2C3B30">Neue Kontaktnachricht – RAUM &amp; ZEIT</h2>
       <table cellpadding="6" style="border-collapse:collapse">
         ${rows
           .map(
@@ -81,7 +75,7 @@ async function sendViaSendgrid(data: ContactPayload) {
     replyTo: data.email
       ? { email: data.email, name: data.name }
       : undefined,
-    subject: `Anfrage RAUM & ZEIT – ${data.name}`,
+    subject: `Kontaktnachricht RAUM & ZEIT – ${data.name}`,
     text,
     html,
   });

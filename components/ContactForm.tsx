@@ -7,9 +7,6 @@ type FormState = {
   name: string;
   email: string;
   telefon: string;
-  gaeste: string;
-  anreise: string;
-  abreise: string;
   nachricht: string;
   consent: boolean;
 };
@@ -18,9 +15,6 @@ const INITIAL: FormState = {
   name: "",
   email: "",
   telefon: "",
-  gaeste: "1 Person",
-  anreise: "",
-  abreise: "",
   nachricht: "",
   consent: false,
 };
@@ -74,7 +68,7 @@ export default function ContactForm() {
       if (res.ok && data?.success) {
         setStatus("success");
         setMessage(
-          "Vielen Dank für Ihre Anfrage – wir melden uns in Kürze persönlich bei Ihnen."
+          "Vielen Dank für Ihre Nachricht – wir melden uns in Kürze persönlich bei Ihnen."
         );
         setForm(INITIAL);
       } else {
@@ -103,11 +97,12 @@ export default function ContactForm() {
   return (
     <section className="contact" id="anfragen">
       <Reveal className="wrap" style={{ textAlign: "center" }}>
-        <div className="eyebrow center">Anfrage</div>
-        <h2>Ihren Aufenthalt anfragen</h2>
+        <div className="eyebrow center">Kontakt</div>
+        <h2>Noch Fragen? Schreiben Sie uns</h2>
         <p className="intro-lead">
-          Teilen Sie uns Ihren Reisezeitraum mit – wir prüfen die Verfügbarkeit
-          und melden uns persönlich bei Ihnen.
+          Sie möchten etwas zum Apartment oder Ihrem Aufenthalt wissen? Schreiben
+          Sie uns kurz – wir melden uns persönlich bei Ihnen. Buchen können Sie
+          jederzeit direkt über den Kalender oben.
         </p>
 
         <form id="anfrageForm" noValidate onSubmit={handleSubmit}>
@@ -150,59 +145,23 @@ export default function ContactForm() {
               />
             </div>
           </div>
-          <div className="row">
-            <div className="field">
-              <label htmlFor="telefon">Telefon (optional)</label>
-              <input
-                type="tel"
-                id="telefon"
-                name="telefon"
-                placeholder="Für Rückfragen"
-                value={form.telefon}
-                onChange={(e) => update("telefon", e.target.value)}
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="gaeste">Anzahl Gäste</label>
-              <select
-                id="gaeste"
-                name="gaeste"
-                value={form.gaeste}
-                onChange={(e) => update("gaeste", e.target.value)}
-              >
-                <option>1 Person</option>
-                <option>2 Personen</option>
-              </select>
-            </div>
-          </div>
-          <div className="row">
-            <div className="field">
-              <label htmlFor="anreise">Anreise</label>
-              <input
-                type="date"
-                id="anreise"
-                name="anreise"
-                value={form.anreise}
-                onChange={(e) => update("anreise", e.target.value)}
-              />
-            </div>
-            <div className="field">
-              <label htmlFor="abreise">Abreise</label>
-              <input
-                type="date"
-                id="abreise"
-                name="abreise"
-                value={form.abreise}
-                onChange={(e) => update("abreise", e.target.value)}
-              />
-            </div>
+          <div className="field full">
+            <label htmlFor="telefon">Telefon (optional)</label>
+            <input
+              type="tel"
+              id="telefon"
+              name="telefon"
+              placeholder="Für Rückfragen"
+              value={form.telefon}
+              onChange={(e) => update("telefon", e.target.value)}
+            />
           </div>
           <div className="field full">
             <label htmlFor="nachricht">Ihre Nachricht</label>
             <textarea
               id="nachricht"
               name="nachricht"
-              placeholder="Anlass des Aufenthalts, Wünsche, Fragen …"
+              placeholder="Ihre Frage oder Nachricht …"
               value={form.nachricht}
               onChange={(e) => update("nachricht", e.target.value)}
             />
@@ -237,7 +196,7 @@ export default function ContactForm() {
               className="btn btn--brass"
               disabled={status === "sending"}
             >
-              {status === "sending" ? "Wird gesendet …" : "Anfrage senden"}{" "}
+              {status === "sending" ? "Wird gesendet …" : "Nachricht senden"}{" "}
               <span className="arrow">→</span>
             </button>
             <span style={{ fontSize: 13, color: "rgba(237,230,218,.6)" }}>

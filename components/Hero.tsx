@@ -44,8 +44,8 @@ export default function Hero() {
             Ankommen, durchatmen, wohnen. Auf Zeit.
           </p>
           <div style={{ marginTop: 38 }}>
-            <a href="#anfragen" className="btn btn--brass">
-              Direkt anfragen <span className="arrow">→</span>
+            <a href="#verfuegbarkeit" className="btn btn--brass">
+              Jetzt buchen <span className="arrow">→</span>
             </a>
           </div>
         </div>
