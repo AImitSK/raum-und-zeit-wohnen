@@ -290,6 +290,9 @@ section { padding: 120px 0; }
 .cal-frame table { margin-left: auto; margin-right: auto; }
 @media (max-width: 640px) {
   .cal-frame { padding: 12px; overflow-x: auto; }
+  /* Auf Mobile ausblenden: Logo oben links (doppelt zur Headline) und Fakten-Leiste */
+  .hero__mark { display: none; }
+  .hero__bottom .hero__facts:first-child { display: none; }
 }
 
 /* ---------- form ---------- */

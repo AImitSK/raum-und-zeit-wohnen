@@ -16,7 +16,7 @@ export default function Booking() {
         </p>
 
         <div className="cal-frame">
-          <div id="apartmentIframeAll" />
+          <div id="apartmentIframe3383171" />
         </div>
       </Reveal>
 
@@ -33,9 +33,9 @@ export default function Booking() {
               }) => void;
             };
           }).BookingToolIframe.initialize({
-            url: "https://login.smoobu.com/de/booking-tool/iframe/1794206",
+            url: "https://login.smoobu.com/de/booking-tool/iframe/1794206/3383171",
             baseUrl: "https://login.smoobu.com",
-            target: "#apartmentIframeAll",
+            target: "#apartmentIframe3383171",
           });
         }}
       />
